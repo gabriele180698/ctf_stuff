@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Welcome!](README.md)
+* [Proof of concept](README.md)
 
 ## The Company
 
