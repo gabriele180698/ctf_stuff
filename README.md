@@ -1,119 +1,27 @@
----
-coverY: 0
----
+# GDB
 
-# Welcome!
+## gdbinit
 
-## Useful commands, scripts, and anything else
+We can create a file containing some commands that are executed when gdb is started. It is useful to automatize some operations.
 
-### Python
+The command to start gdb with the gdbinit file defined by us is the following.
 
-#### Useful imports and file configurators
-
-```python
-#!/bin/env python3
-from pwn import *
-import time
+```
+gdb -q -x ./gdbinit
 ```
 
-#### Startup the process or connect remotely
+Here is an example of the gdbinit file.
 
-Split the command line using tmux (e.g. the running program on the left hand side and gdb on the right hand side)
-
-```python
-context.terminal = ['tmux', 'splitw', '-h']
 ```
+file executable_file_name
 
-Start the local process
+b *0xffffffff
 
-```python
-r=process("./program")
-```
+commands 1
+    silent
+    print "%c", $al
+    c
+end
 
-Attach gdb
-
-```python
-gdb.attach(r, """ b *0x40022b """)
-```
-
-Define host and port for the remote connection
-
-```python
-HOST='hack.paperino.it'
-PORT='xxxx'
-```
-
-Connect to destination defined above
-
-```python
-r=remote(HOST,PORT)
-```
-
-Send an input
-
-```python
-r.send(str)    
-r.sendline(str)
-```
-
-Receive something
-
-```python
-f = r.recv()
-f = r.recvuntil('something\n')
-```
-
-Stop execution until an input
-
-```python
-input('Insert something')
-```
-
-Wait (useful to avoid short reads)
-
-```python
-time.sleep(0.2)
-```
-
-Make the shell interactive at the end of the script
-
-```python
-r.interactive()
-```
-
-#### Packed and Unpacked
-
-Only for 8 bytes long elements
-
-```python
-g = u64(g)  
-g = p64(g)
-```
-
-Only for 4 bytes long elements
-
-```python
-g = u32(g)     
-g = u32(g)
-```
-
-To adjust the length
-
-```python
-g = g.ljust(8, b'\x00')
-```
-
-#### Python syntactic sugar
-
-To write a file
-
-```python
-f=open("sol", "wb")
-f.write(b)
-```
-
-To read a file
-
-```python
-str=open('sol','r').read()
+r
 ```

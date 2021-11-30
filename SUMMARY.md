@@ -1,6 +1,7 @@
 # Table of contents
 
-* [Proof of concept](README.md)
+* [GDB](README.md)
+* [Script Stuff](<README (1).md>)
 
 ## The Company
 
