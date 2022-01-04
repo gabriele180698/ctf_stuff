@@ -13,7 +13,7 @@ description: >-
 The packing keys can be taken from the original binary performing static and dynamic analysis.&#x20;
 {% endhint %}
 
-```
+```python
 import sys
 from pwn import u32, p32
 
@@ -55,5 +55,4 @@ f = f[:off] + decode + f[off+(size*4):]
 ff = open(filepath, "wb")
 ff.write(f)
 ff.close()
-
 ```
