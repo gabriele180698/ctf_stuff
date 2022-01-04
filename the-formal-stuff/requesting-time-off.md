@@ -40,3 +40,12 @@ thread_log = Thread(target = threaded_log)
 thread_reg.start()
 thread_log.start()
 ```
+
+If you need to deal with cookies to access other pages, you can use the following snippet.
+
+```python
+page = r.post(login_url, data={"username": f"{username}", 
+                "password": f"{password}", "log_user" : ""})
+cookie = page.cookies
+page = r.get(home_url, data={"Cookie" : f"{cookie}"})
+```
