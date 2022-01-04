@@ -7,7 +7,7 @@ coverY: 0
 
 # Race Condition
 
-```
+```python
 import requests
 import random
 import string
