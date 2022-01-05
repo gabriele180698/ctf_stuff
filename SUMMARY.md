@@ -2,6 +2,7 @@
 
 * [GDB](README.md)
 * [Script Stuff](<README (1).md>)
+* [ROP](rop.md)
 
 ## Script Mockups
 
